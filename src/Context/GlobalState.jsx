@@ -33,7 +33,7 @@ export const GlobalProvider = ({ children }) => {
       value={{
         transactions: state.transactions,
         addTransaction,
-        deleteTransaction,
+        deleteTransaction
       }}
     >
       {children}

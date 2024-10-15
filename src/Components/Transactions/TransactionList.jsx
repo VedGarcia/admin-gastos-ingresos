@@ -11,7 +11,7 @@ function TransactionList() {
                   <button onClick={() => {
                       deleteTransaction(transaction.id)
                   }}>
-                      X
+                      Eliminar
                   </button>
               </div>
           ))

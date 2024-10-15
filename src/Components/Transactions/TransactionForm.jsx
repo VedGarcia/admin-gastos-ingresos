@@ -11,7 +11,7 @@ function TransitionForm() {
       addTransaction({
         id: window.crypto.randomUUID(),
         description: description,
-        amount: amount
+        amount: +amount
       });
     };
 
