@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // Importamos Link para navegación
+import { useNavigate, Link } from "react-router-dom";
 
 function SignUp() {
     const [username, setUsername] = useState("");
@@ -10,16 +10,16 @@ function SignUp() {
     const handleSignUp = (e) => {
         e.preventDefault();
 
-        // Guardar los datos del nuevo usuario en localStorage
+        
         const userData = {
             username: username,
             password: password,
             email: email
         };
 
-        localStorage.setItem('userData', JSON.stringify(userData)); // Guardamos como objeto JSON
+        localStorage.setItem('userData', JSON.stringify(userData)); 
 
-        // Redirigir a la página de login después de registrarse
+        
         navigate('/login');
     };
 
@@ -77,7 +77,7 @@ function SignUp() {
                     <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Sign Up</button>
                 </form>
                 
-                {/* Enlace al Login */}
+                
                 <div className="mt-6 text-gray-600 text-center">
                     <Link to="/login" className="hover:underline">Already have an account? Log in here!</Link>
                 </div>

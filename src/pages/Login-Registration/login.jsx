@@ -9,7 +9,7 @@ function Login() {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        // Obtener los datos guardados en localStorage
+      
         const savedUserData = JSON.parse(localStorage.getItem('userData'));
 
 
@@ -20,6 +20,7 @@ function Login() {
         } else {
             alert("Credenciales incorrectas. Intenta de nuevo.");
         }
+        navigate("/login")
     };
 
     return (
@@ -61,6 +62,7 @@ function Login() {
 
                     <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
                 </form>
+ 
             </div>
         </div>
     );
