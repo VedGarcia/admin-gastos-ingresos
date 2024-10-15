@@ -1,38 +1,32 @@
 import { useState } from "react";
 import { useGlobalState } from "../../Context/GlobalState";
 
-function TransactionForm() {
-  const { addTransaction } = useGlobalState();
+function TransitionForm() {
+  const {addTransaction} = useGlobalState()
   const [description, setDescription] = useState();
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(0)
 
   const onSubmit = (e) => {
-    e.preventDefault();
-    addTransaction({
-      id: window.crypto.randomUUID(),
-      description,
-      amount,
-    });
-  };
+      e.preventDefault();
+      addTransaction({
+        id: window.crypto.randomUUID(),
+        description: description,
+        amount: amount
+      });
+    };
 
-  return (
-    <div>
+
+return (
+  <div>
       <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="Ingresa una Descripcion"
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <input
-          type="number"
-          step="0.01"
-          placeholder="00.00"
-          onChange={(e) => setAmount(e.target.value)}
-        />
-        <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Añade una Transacion</button>
+          <input type="text" placeholder="descripcion" onChange={(e) => setDescription(e.target.value)}/>
+          <input type="number" step="0.1" placeholder="00.00" onChange={(e) => setAmount(e.target.value)}/>
+          <button>
+              add transactions 
+          </button>
       </form>
-    </div>
-  );
+  </div>
+)
 }
 
-export default TransactionForm;
+export default TransitionForm
