@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { useGlobalState } from "../Context/GlobalState";
+import { useGlobalState } from "../../Context/GlobalState";
 
 function TransactionForm() {
-  const {addTransaction} = useGlobalState();
+  const { addTransaction } = useGlobalState();
   const [description, setDescription] = useState();
   const [amount, setAmount] = useState(0);
 
   const onSubmit = (e) => {
     e.preventDefault();
     addTransaction({
-      id: 1,
+      id: window.crypto.randomUUID(),
       description,
-      amount
+      amount,
     });
-    
   };
 
   return (
@@ -30,7 +29,7 @@ function TransactionForm() {
           placeholder="00.00"
           onChange={(e) => setAmount(e.target.value)}
         />
-        <button>Añade una Transaction</button>
+        <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Añade una Transacion</button>
       </form>
     </div>
   );

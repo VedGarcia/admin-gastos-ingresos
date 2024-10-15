@@ -18,7 +18,7 @@ const addTransaction = (transaction) => {
 dispatch({type: "ADD_TRANSACTION",
   payload: transaction
 })
-  console.log("addTransaction")
+
 }
 
 
