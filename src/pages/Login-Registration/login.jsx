@@ -1,71 +1,83 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+  const [formData, setFormData] = useState({ username: "", password: "" });
+  const navigate = useNavigate();
 
-    const handleLogin = (e) => {
-        e.preventDefault();
+  const handleChange = ({ target: { name, value } }) =>
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
 
-      
-        const savedUserData = JSON.parse(localStorage.getItem('userData'));
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const savedUserData = JSON.parse(localStorage.getItem("userData"));
+    if (
+      savedUserData?.username === formData.username &&
+      savedUserData?.password === formData.password
+    ) {
+      localStorage.setItem("isLoggedIn", true);
+      navigate("/incomes");
+    } else alert("Credenciales incorrectas. Intenta de nuevo.");
+  };
 
+  return (
+    <div className="relative bg-gradient-to-r from-pink-300 to-blue-300 flex justify-center items-center h-screen">
+      {/* Partículas animadas de fondo */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-32 h-32 bg-blue-400 opacity-60 rounded-full animate-float left-10 top-0"></div>
+        <div className="absolute w-24 h-24 bg-pink-400 opacity-60 rounded-full animate-float delay-1000 left-1/4 top-1/4"></div>
+        <div className="absolute w-40 h-40 bg-green-400 opacity-60 rounded-full animate-float delay-1500 left-2/3 top-1/3"></div>
+        <div className="absolute w-28 h-28 bg-yellow-300 opacity-60 rounded-full animate-float delay-2000 left-1/3 top-3/4"></div>
+        <div className="absolute w-36 h-36 bg-purple-300 opacity-60 rounded-full animate-float delay-2500 left-1/2 top-1/2"></div>
+        <div className="absolute w-30 h-30 bg-teal-400 opacity-60 rounded-full animate-float delay-3000 right-10 bottom-0"></div>
+        <div className="absolute w-20 h-20 bg-orange-400 opacity-60 rounded-full animate-float delay-3500 left-2/5 top-1/4"></div>
+      </div>
 
-        if (savedUserData && savedUserData.username === username && savedUserData.password === password) {
-            localStorage.setItem('isLoggedIn', true);
-
-            navigate("/incomes");
-        } else {
-            alert("Credenciales incorrectas. Intenta de nuevo.");
-        }
-        navigate("/login")
-    };
-
-    return (
-        <div className="bg-stone-100 flex justify-center items-center h-screen">
-            <div className="w-1/2 h-screen hidden lg:block">
-                <img src="src/assets/react.svg" alt="Placeholder Image" className="object-cover w-full h-full" />
+      {/* Contenedor del formulario */}
+      <div className="relative w-full max-w-md p-8 bg-white bg-opacity-80 backdrop-blur-lg rounded-lg shadow-lg z-10 animate-slide-in">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6 animate-slide-in">
+          Login
+        </h1>
+        <form onSubmit={handleLogin}>
+          {["username", "password"].map((field) => (
+            <div key={field} className="mb-6">
+              <label
+                htmlFor={field}
+                className="block text-gray-700 text-lg mb-1"
+              >
+                {field.charAt(0).toUpperCase() + field.slice(1)}
+              </label>
+              <input
+                type={field === "password" ? "password" : "text"}
+                id={field}
+                name={field}
+                value={formData[field]}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md py-3 px-4 focus:border-blue-500 transition duration-300 hover:shadow-md"
+                autoComplete="off"
+                required
+              />
             </div>
+          ))}
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold rounded-md py-3 w-full transition duration-300 transform hover:scale-105"
+          >
+            Login
+          </button>
+        </form>
 
-            <div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
-                <h1 className="text-2xl font-semibold mb-4">Login</h1>
-                <form onSubmit={handleLogin}>
-                    <div className="mb-4 bg-sky-100">
-                        <label htmlFor="username" className="block text-gray-600">Username</label>
-                        <input 
-                            type="text" 
-                            id="username" 
-                            name="username" 
-                            value={username} 
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" 
-                            autoComplete="off" 
-                            required 
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <label htmlFor="password" className="block text-gray-800">Password</label>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            value={password} 
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" 
-                            autoComplete="off" 
-                            required 
-                        />
-                    </div>
-
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
-                </form>
- 
-            </div>
+        <div className="mt-6 text-gray-600 text-center">
+          <Link
+            to="/"
+            className="text-sm font-medium hover:underline hover:text-blue-600 transition"
+          >
+            Don't have an account? Sign up here!
+          </Link>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Login;
