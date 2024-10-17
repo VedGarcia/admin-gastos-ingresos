@@ -16,7 +16,7 @@ function App() {
             <Balance />
             <TransactionForm />
           </div>
-          <div>
+          <div className="flex flex-col">
             <ExpenseChart />
             <TransactionList />
           </div>
