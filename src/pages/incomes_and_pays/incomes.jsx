@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import Header from '../../Components/Header';
+import Header from '../../components/Header';
 import React from "react";
-import Balance from '../../Components/Balance';
-import TransactionForm from '../../Components/TransactionForm';
-
+import Balance from '../../components/Balance';
+import { TransactionForm } from '../../components/transactions/TransactionForm';
+import { IncomeExpenses } from '../../components/IncomeExpenses';
+import { ExpenseChart } from '../../components/ExpenseChart';
+import { TransactionList } from '../../components/transactions/TransactionList';
 function Incomes() {
     const navigate = useNavigate();
 
@@ -13,16 +15,24 @@ function Incomes() {
     };
 
     return (
-        <div className="bg-red-400 ">
+        <div className="bg-neutral-950 text-white h-screen flex justify-center items-center">
+        <div className="w-2/5 flex justify-center items-center">
+          <div className="bg-neutral-800 p-10 rounded-md w-full">
             <Header />
-            <Balance />
-            <TransactionForm />
-            <h1>Incomes Page</h1>
-
-            <button onClick={handleLogout} className="text-gray-500">
-                Logout
-            </button>
+            <div className="flex flex-col md:flex-row justify-between gap-4">
+              <div className="flex-1">
+                <IncomeExpenses />
+                <Balance />
+                <TransactionForm />
+              </div>
+              <div className="flex-1 flex flex-col">
+                <ExpenseChart />
+                <TransactionList />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     );
 }
 
