@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme:{
     extend: {
-        // Definir animaciones personalizadas aquí
+        
         keyframes: {
+
           'float-1': {
             '0%': { transform: 'translate(0, 0)' },
             '25%': { transform: 'translate(25px, -15px)' },

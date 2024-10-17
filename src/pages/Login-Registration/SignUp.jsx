@@ -25,15 +25,13 @@ function SignUp() {
   <div className="absolute w-36 h-36 bg-purple-300 opacity-60 rounded-full animate-float-2 delay-2500 left-1/2 top-1/2"></div>
   <div className="absolute w-30 h-30 bg-teal-400 opacity-60 rounded-full animate-float-3 delay-3000 right-10 bottom-0"></div>
   <div className="absolute w-20 h-20 bg-orange-400 opacity-60 rounded-full animate-float-1 delay-3500 left-2/5 top-1/4"></div>
-<div className="absolute w-34 h-34 bg-red-300 opacity-60 rounded-full animate-float-2 delay-4000 top-1/5 right-1/4"></div>
-  <div className="absolute w-30 h-30 bg-indigo-400 opacity-60 rounded-full animate-float-3 delay-4500 left-2/3 top-1/4"></div>
-  <div className="absolute w-26 h-26 bg-teal-500 opacity-60 rounded-full animate-float-1 delay-3000 left-1/5 bottom-0"></div>
+
 </div>
 
 
 
 
-      <div className="relative w-full max-w-md p-8 bg-white bg-opacity-80 backdrop-blur-lg rounded-lg shadow-lg z-10 animate-slide-in">
+      <div className="relative w-full max-w-md p-8  bg-white bg-opacity-80 backdrop-blur-lg border-2 border-slate-500 rounded-lg shadow-lg z-10 animate-slide-in">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6 animate-slide-in">
           Sign Up
         </h1>
