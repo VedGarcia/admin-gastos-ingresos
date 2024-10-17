@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-    background-image:linear-gradient(90deg, #B6B2EC, #877DD4 );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
+  background-image: linear-gradient(90deg, #b6b2ec, #877dd4);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
