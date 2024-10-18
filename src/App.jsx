@@ -8,8 +8,8 @@ import ExpenseChart from "./Components/ExpenseChart";
 function App() {
   return (
     <GlobalProvider>
-      <div className="bg-zinc-950 text-white h-screen flex justify-center items-center">
-        <div className="bg-zinc-800 p-10 rounded-lg flex gap-x-2">
+      <div className="bg-[#161719] text-white h-screen flex justify-center items-center">
+        <div className="bg-[#1f1e1e] p-10 rounded-lg flex gap-x-2 border-2 border-neutral-800  opacity-80">
           <div className="container mx-auto w-3/6">
             <h1 className=" text-4xl font-bold">Seguidor de Gastos</h1> 
             <IncomeExpenses />

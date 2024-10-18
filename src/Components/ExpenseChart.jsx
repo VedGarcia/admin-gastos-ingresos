@@ -23,7 +23,7 @@ function ExpenseChart() {
 
   return (
     <VictoryPie
-      colorScale={["#e74c3c", "#2ecc71"]}
+      colorScale={["#22161C","#A7A5A6"]}
       data={[
         { x: "Gastos", y: totalExpensesPercentage },
         { x: "Ingresos", y: totalIncomePercentage },
