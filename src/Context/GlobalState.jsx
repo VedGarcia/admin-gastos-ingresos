@@ -13,12 +13,15 @@ export const useGlobalstate = () => {
 }
 export const GlobalProvider = ({ children }) => {
 const [state, dispatch] = useReducer(AppReducer, initialState);
+const addTransaction = () => console.log("addTransaction")
+
 
     return (
         <Context.Provider 
         value={{
             transactions: state.transactions,
-            dispatch
+            dispatch,
+            addTransaction
         }}
         >{children}</Context.Provider>
     )
