@@ -20,13 +20,13 @@ export function TransactionForm() {
   };
 
   return (
-    <div>
+    <div className="p-6 bg-white bg-opacity-80 backdrop-blur-lg rounded-md shadow-lg animate-reappear">
       <form onSubmit={onSubmit}>
         <input
           type="text"
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Enter a description"
-          className="bg-zinc-600 text-white px-3 py-2 rounded-lg block mb-2 w-full"
+          className="bg-gray-300 text-gray-800 px-4 py-2 rounded-md block mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           value={description}
         />
         <input
@@ -34,13 +34,15 @@ export function TransactionForm() {
           onChange={(e) => setAmount(e.target.value)}
           step="0.01"
           placeholder="0.00"
-          className="bg-zinc-600 text-white px-3 py-2 rounded-lg block mb-2 w-full"
+          className="bg-gray-300 text-gray-800 px-4 py-2 rounded-md block mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           value={amount}
         />
         <button
-          className="bg-indigo-700 text-white px-3 py-2 rounded-lg block mb-2 w-full disabled:opacity-50"
+          className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-md block w-full font-semibold transition transform hover:scale-105"
           disabled={!description || !amount}
-        >Add Transaction</button>
+        >
+          Add Transaction
+        </button>
       </form>
     </div>
   );

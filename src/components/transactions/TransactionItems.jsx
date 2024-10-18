@@ -1,5 +1,5 @@
 import { useGlobalState } from "../../context/GlobalState";
-import {BiTrash} from 'react-icons/bi'
+import { BiTrash } from 'react-icons/bi';
 
 export function TransactionItem({ transaction: { id, description, amount } }) {
   const { deleteTransaction } = useGlobalState();
@@ -8,21 +8,20 @@ export function TransactionItem({ transaction: { id, description, amount } }) {
   return (
     <li
       key={id}
-      className={
-        `bg-zinc-600 text-white px-3 py-1 rounded-lg mb-2 w-full flex justify-between items-center` +
-        ` ${amount < 0 ? "bg-red-700" : "bg-green-700"}`
-      }
+      className={`flex justify-between items-center p-4 rounded-lg shadow-md my-2 bg-opacity-80 backdrop-blur-lg transition-transform transform hover:scale-105 ${
+        amount < 0 ? "bg-red-500" : "bg-green-500"
+      }`}
     >
-      {description}
-      <div>
-        <span>
+      <span className="font-medium text-lg">{description}</span>
+      <div className="flex items-center space-x-4">
+        <span className="text-white font-bold">
           {sign}${Math.abs(amount)}
         </span>
         <button
           onClick={() => deleteTransaction(id)}
-          className="font-bold text-white rounded-lg ml-2"
+          className="p-2 rounded-full bg-white bg-opacity-30 hover:bg-opacity-50 transition"
         >
-          <BiTrash />
+          <BiTrash className="text-white" />
         </button>
       </div>
     </li>

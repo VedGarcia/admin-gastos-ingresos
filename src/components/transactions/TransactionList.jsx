@@ -1,24 +1,24 @@
 import { useGlobalState } from "../../context/GlobalState";
-import { TransactionItem } from "./TransactionItems";
+import { TransactionItem } from "../transactions/TransactionItems";
 
 export function TransactionList() {
   const { transactions } = useGlobalState();
 
   if (transactions.length === 0) {
     return (
-      <div className="bg-zinc-900 p-4 my-2">
-        <div className="h-full flex items-center justify-center w-full flex-col">
-          <h1 className="text-xl font-bold my-2">
-            There are no transactions yet
-          </h1>
-        </div>
+      <div className="bg-white bg-opacity-80 p-6 rounded-md shadow-lg animate-reappear min-h-[200px] max-h-[200px]">
+        <h1 className="text-gray-700 font-bold text-center">
+          There are no transactions yet
+        </h1>
       </div>
     );
   }
 
   return (
-    <div className="bg-zinc-900 p-4">
-      <h3 className="text-slate-300 text-xl font-bold my-2 text-center">History</h3>
+    <div className="bg-white bg-opacity-80 p-6 rounded-md shadow-lg animate-reappear min-h-[200px] max-h-[400px] overflow-y-auto">
+      <h3 className="text-gray-700 text-xl font-bold text-center mb-4">
+        History
+      </h3>
       <ul>
         {transactions.map((transaction) => (
           <TransactionItem key={transaction.id} transaction={transaction} />
