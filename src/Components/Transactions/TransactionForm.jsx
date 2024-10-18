@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGlobalState } from "../../Context/GlobalState";
-
+import { TfiPlus } from "react-icons/tfi";
 
 function TransitionForm() {
   const { addTransaction } = useGlobalState();
@@ -36,9 +36,9 @@ function TransitionForm() {
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
         />
-        <button className="bg-[#FF6839] text white px-3 py-2 rounded-lg block mb-2 w-full">
-        
-          add transactions
+        <button className="bg-gradient-to-r bg-[#E15F2B]  text-white px-4 py-2 rounded-md block w-full font-semibold transition transform hover:scale-105">
+          Añadir Transacción
+          <TfiPlus className="h-6 w-6 float-right" />
         </button>
       </form>
     </div>

@@ -1,5 +1,5 @@
 import { GlobalProvider } from "./Context/GlobalState";
-// import Header from "./Components/Header";
+
 import Balance from "./Components/Balance";
 import TransactionForm from "./Components/Transactions/TransactionForm";
 import TransactionList from "./Components/Transactions/TransactionList";
@@ -23,7 +23,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-[200vw] h-[200vw] bg-gradient-to-tr from-stone-900 to-stone-950 absolute top-[-50vw] right-[-50vw] overflow-hidden -z-30 animate-spin duration-700s "></div>
+      <div className="w-[200vw] h-[200vw] bg-gradient-to-tr from-[#171616] to-[#000000] absolute top-[-50vw] right-[-50vw] overflow-hidden -z-30 animate-spin duration-700s "></div>
     </GlobalProvider>
   );
 }
