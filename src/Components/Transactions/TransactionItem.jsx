@@ -1,4 +1,5 @@
 import { useGlobalState } from "../../Context/GlobalState";
+import { FaDeleteLeft } from "react-icons/fa6";
 export function TransactionItem({ transaction }) {
   const { deleteTransaction } = useGlobalState();
 
@@ -7,12 +8,12 @@ export function TransactionItem({ transaction }) {
       <p className="text-sm">{transaction.description}</p>
       <div>
         <span>{transaction.amount}</span>
-        <button
+        <button className="mb-2 rounded-lg bg-ndigo"
           onClick={() => {
             deleteTransaction(transaction.id);
           }}
         >
-          Eliminar
+          <FaDeleteLeft />
         </button>
       </div>
     </li>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useGlobalState } from "../../Context/GlobalState";
 
+
 function TransitionForm() {
   const { addTransaction } = useGlobalState();
   const [description, setDescription] = useState("");
@@ -36,6 +37,7 @@ function TransitionForm() {
           value={amount}
         />
         <button className="bg-indigo-700 text white px-3 py-2 rounded-lg block mb-2 w-full">
+        
           add transactions
         </button>
       </form>
