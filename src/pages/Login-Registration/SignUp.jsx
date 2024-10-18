@@ -31,7 +31,7 @@ function SignUp() {
 
 
 
-      <div className="relative w-full max-w-md p-8  bg-white bg-opacity-80 backdrop-blur-lg border-2 border-slate-500 rounded-lg shadow-lg z-10 animate-slide-in">
+      <div className="relative w-full max-w-md p-8  bg-white bg-opacity-80 backdrop-blur-lg border-4 animate-snake-border rounded-lg shadow-lg z-10 animate-slide-in">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6 animate-slide-in">
           Sign Up
         </h1>

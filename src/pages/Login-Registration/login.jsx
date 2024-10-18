@@ -22,7 +22,7 @@ function Login() {
 
   return (
     <div className="relative bg-gradient-to-r from-pink-300 to-blue-300 flex justify-center items-center h-screen">
-      {/* Partículas animadas de fondo */}
+
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-32 h-32 bg-blue-400 opacity-60 rounded-full animate-float left-10 top-0"></div>
         <div className="absolute w-24 h-24 bg-pink-400 opacity-60 rounded-full animate-float delay-1000 left-1/4 top-1/4"></div>
@@ -33,8 +33,7 @@ function Login() {
         <div className="absolute w-20 h-20 bg-orange-400 opacity-60 rounded-full animate-float delay-3500 left-2/5 top-1/4"></div>
       </div>
 
-      {/* Contenedor del formulario */}
-      <div className="relative w-full max-w-md p-8 bg-white bg-opacity-80 backdrop-blur-lg rounded-lg shadow-lg z-10 animate-slide-in">
+      <div className="relative w-full max-w-md p-8 bg-white bg-opacity-80 backdrop-blur-lg rounded-lg border-2 border-slate-800 shadow-lg z-10 animate-slide-in">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6 animate-slide-in">
           Login
         </h1>
