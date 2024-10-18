@@ -5,7 +5,7 @@ function Balance() {
   const total = amounts.reduce((acc , item) => (acc += item), 0)
   
   return (
-    <div>
+    <div className="flex justify-between">
       <h3 className="text-xl text-gray-700 font-bold">Balance</h3>
       <p className="text-2xl text-gray-700">
         ${total.toFixed(2)}
