@@ -23,7 +23,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-[200vw] h-[200vw] bg-gradient-to-tr from-slate-800 to-zinc-900 absolute top-[-50vw] right-[-50vw] overflow-hidden -z-30 animate-spin duration-700 "></div>
+      <div className="w-[200vw] h-[200vw] bg-gradient-to-tr from-stone-900 to-stone-950 absolute top-[-50vw] right-[-50vw] overflow-hidden -z-30 animate-spin duration-700s "></div>
     </GlobalProvider>
   );
 }

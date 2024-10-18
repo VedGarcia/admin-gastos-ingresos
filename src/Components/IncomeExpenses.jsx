@@ -25,7 +25,7 @@ function IncomeExpenses() {
         <p>{0}</p>
       </div>
     </>
-  ); 
+  );
 }
 
 export default IncomeExpenses;
