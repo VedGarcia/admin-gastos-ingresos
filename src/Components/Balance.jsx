@@ -1,4 +1,5 @@
 import { useGlobalState } from "../Context/GlobalState";
+import { FaSackDollar } from "react-icons/fa6";
 
 function Balance() {
   const { transactions } = useGlobalState();
@@ -9,7 +10,7 @@ function Balance() {
 
   return (
     <div className="flex justify-between">
-      <h2>Tu Balance</h2>
+      <FaSackDollar className="h-7 w-7"/>
       <h1 className="text-2xl font-bold">${total}</h1>
     </div>
   );

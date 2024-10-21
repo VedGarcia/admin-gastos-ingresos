@@ -1,19 +1,19 @@
 import { useGlobalState } from "../../Context/GlobalState";
-import { FaDeleteLeft } from "react-icons/fa6";
+import { AiOutlineClose } from "react-icons/ai";
 export function TransactionItem({ transaction }) {
   const { deleteTransaction } = useGlobalState();
 
   return (
-    <li className="bg-zinc-600 text-white px-3 py-2 rounded-lg mb-2 w-full flex justify-between items-center">
-      <p className="text-xl">{transaction.description}</p>
+    <li className="bg-gray-800 text-white px-4 py-1 rounded-lg mb-3 w-full flex justify-between items-center ">
+      <p className="text-lg">{transaction.description}</p>
       <div>
         <span>{transaction.amount}</span>
-        <button className="mb-2 rounded-lg bg-indigo"
+        <button className="mb-2 rounded-lg py-2"
           onClick={() => {
             deleteTransaction(transaction.id);
           }}
         >
-          <FaDeleteLeft  className="h-8 w-8"/>
+          <AiOutlineClose  className="h-5 w-5"/>
         </button>
       </div> 
     </li>
