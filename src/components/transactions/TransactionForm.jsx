@@ -55,6 +55,7 @@ export function TransactionForm() {
           value={income}
         />
 
+        {/* Input para gastos */}
         <input
           type="number"
           onChange={(e) => setExpense(e.target.value)}

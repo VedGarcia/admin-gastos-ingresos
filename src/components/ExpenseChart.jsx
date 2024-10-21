@@ -13,9 +13,18 @@ export function ExpenseChart() {
     .filter((transaction) => transaction.amount < 0)
     .reduce((acc, transaction) => (acc += transaction.amount), 0) * -1;
 
-  const expensesPercentage = Math.round((totalExpenses / totalIncomes) * 100);
-  const incomesPercentage = 100 - expensesPercentage;
+  // Evitar errores de división por cero
+  const total = totalIncomes + totalExpenses;
 
+  let expensesPercentage = 0;
+  let incomesPercentage = 0;
+
+  if (totalIncomes > 0) {
+    expensesPercentage = Math.round((totalExpenses / totalIncomes) * 100);
+    incomesPercentage = 100 - expensesPercentage;
+  }
+
+  // Si no hay datos aún
   if (totalIncomes === 0 && totalExpenses === 0) {
     return (
       <div className="bg-white bg-opacity-90 p-4 my-2 rounded-md shadow-md backdrop-blur-md">
@@ -32,8 +41,8 @@ export function ExpenseChart() {
       <VictoryPie
         colorScale={["#e74c3c", "#2ecc71"]}
         data={[
-          { x: "Expenses", y: expensesPercentage },
-          { x: "Incomes", y: incomesPercentage },
+          { x: "Expenses", y: totalExpenses > 0 ? expensesPercentage : 0 },
+          { x: "Incomes", y: totalIncomes > 0 ? incomesPercentage : 100 },
         ]}
         animate={{
           duration: 2000,
