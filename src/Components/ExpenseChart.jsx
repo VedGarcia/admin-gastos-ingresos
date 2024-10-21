@@ -17,9 +17,7 @@ function ExpenseChart() {
   );
   const totalIncomePercentage = 100 - totalExpensesPercentage;
 
-  console.log(totalExpensesPercentage);
 
-  console.log(totalIncomePercentage);
 
   return (
     <VictoryPie

@@ -4,7 +4,7 @@ export function TransactionItem({ transaction }) {
   const { deleteTransaction } = useGlobalState();
 
   return (
-    <li className="bg-gray-800 text-white px-4 py-1 rounded-lg mb-3 w-full flex justify-between items-center ">
+    <li className="bg-gray-800 text-white px-4 py-1 rounded-lg mb-3 w-full flex justify-between items-center border-b border-r-2 transition-transform duration-300 active:scale-95 hover:scale-105 ">
       <p className="text-lg">{transaction.description}</p>
       <div>
         <span>{transaction.amount}</span>

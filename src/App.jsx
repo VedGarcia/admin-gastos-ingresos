@@ -12,7 +12,7 @@ function App() {
       <div className=" text-white h-screen flex justify-center items-center">
         <div className="bg-[#1b1c20] p-10 rounded-lg flex gap-x-2 border-2 border-neutral-800  opacity-80">
           <div className="container mx-auto w-3/6">
-            <h1 className=" text-4xl font-bold">Seguidor de Gastos</h1>
+            <h1 className=" text-4xl font-bold border-b py-3">Balance Personal</h1>
             <IncomeExpenses />
             <Balance />
             <TransactionForm />

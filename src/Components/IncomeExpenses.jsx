@@ -18,11 +18,11 @@ function IncomeExpenses() {
     <>
       <div className="flex justify-between my-2">
         <h4 className="text-3xl">Ingresos</h4>
-        <p className="text-xl">{income}</p>
+        <p className="text-xl">${income}</p>
       </div>
       <div className="flex justify-between my-2">
         <h4 className="text-3xl">Gastos</h4>
-        <p className="text-xl">{0.00}</p>
+        <p className="text-xl ">${0.00}</p>
       </div>
     </>
   );
