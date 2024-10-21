@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { addTransaction } from "../../Context/GlobalState";
+import { useGlobalState } from "../../../Context/GlobalState";
 
 const TransactionForms = () => {
-
+const {addTransaction} = useGlobalState()
   const [description, setDescription] = useState();
-  const [amount, setAmount] = useState(0.0);
+  const [amount, setAmount] = useState(0.00);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    addTransaction({id: window.crypto.ramdomUUID(), description, amount})
     console.log(description, amount);
   };
   return (

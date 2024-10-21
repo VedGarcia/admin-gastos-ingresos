@@ -1,28 +1,39 @@
 import { createContext, useContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
+import PropTypes from "prop-types"
 
 const initialState = {
-    transactions: []
-}
+  transactions: [],
+};
 
 export const Context = createContext();
 
-export const useGlobalstate = () => {
-    const context = useContext(Context);
-    return context
-}
+export const useGlobalState = () => {
+  const context = useContext(Context);
+  return context;
+};
+
 export const GlobalProvider = ({ children }) => {
-const [state, dispatch] = useReducer(AppReducer, initialState);
-const addTransaction = () => console.log("addTransaction")
 
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
-    return (
-        <Context.Provider 
-        value={{
-            transactions: state.transactions,
-            dispatch,
-            addTransaction
-        }}
-        >{children}</Context.Provider>
-    )
+  const addTransaction = (transactions) => {
+
+    dispatch({ type: 'ADD_TRANSACTION', payload: transactions});
+  }
+  return (
+    <Context.Provider
+      value={{
+        transactions: state.transactions,
+        dispatch,
+        addTransaction,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
+};
+
+GlobalProvider.PropTypes = {
+  children: PropTypes.node
 }
