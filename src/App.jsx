@@ -5,10 +5,15 @@ import TransactionForm from "./Components/Transactions/TransactionForm";
 import TransactionList from "./Components/Transactions/TransactionList";
 import IncomeExpenses from "./Components/IncomeExpenses";
 import ExpenseChart from "./Components/ExpenseChart";
+import { GiBandit } from "react-icons/gi";
 
 function App() {
   return (
     <GlobalProvider>
+      <div id="particles-js"></div>
+      <script src="../src/Particulas/particles.js"></script>
+      <script src="../src/Particulas/app.js"></script>
+
       <div className=" text-white h-screen flex justify-center items-center">
         <div className="bg-[#1b1c20] p-10 rounded-lg flex gap-x-2 border-2 border-neutral-800  opacity-80">
           <div className="container mx-auto w-3/6">
@@ -17,6 +22,7 @@ function App() {
             <Balance />
             <TransactionForm />
           </div>
+          <GiBandit className="h-10 w-10 " />
           <div className="flex flex-col flex-1">
             <ExpenseChart />
             <TransactionList />

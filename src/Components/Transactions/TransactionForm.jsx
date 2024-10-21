@@ -22,14 +22,14 @@ function TransitionForm() {
     <div>
       <form onSubmit={onSubmit}>
         <input
-  className="bg-gradient-to-r from-gray-800 to-zinc-700 text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
+  className="bg-gradient-to-r from-gray-800 to-zinc-700 text-white  px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600 "
   type="text"
   placeholder="Descripción"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         />
         <input
-          className="bg-gradient-to-r from-gray-800 to-zinc-700 text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="bg-gradient-to-r from-gray-800 to-zinc-700  text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
           type="number"
           step="0.1"
           placeholder="00.00"
