@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../../Components/Header';
-import Balance from '../../components/Balance';
-import { TransactionForm } from '../../components/transactions/TransactionForm';
-import { IncomeExpenses } from '../../components/IncomeExpenses';
-import { ExpenseChart } from '../../components/ExpenseChart';
-import { TransactionList } from '../../components/transactions/TransactionList';
+import Balance from '../../Components/Balance';
+import { TransactionForm } from '../../Components/transactions/TransactionForm';
+import { IncomeExpenses } from '../../Components/IncomeExpenses';
+import { ExpenseChart } from '../../Components/ExpenseChart';
+import { TransactionList} from '../../Components/transactions/TransactionList'
 import LogoutButton from '../Login-Registration/LogoutButton';
 
 function Incomes() {
