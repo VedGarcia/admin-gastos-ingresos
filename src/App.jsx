@@ -1,28 +1,24 @@
-import { GlobalProvider, useGlobalState } from './Context/GlobalState'
-import Header from './components/Header'
-import TransactionForms from './components/transactions/TransactionForms'
-import TransactionList from './components/transactions/TransactionList'
-import Balance from './components/Balance'
-import './App.css'
+import { GlobalProvider} from "./Context/GlobalState";
+import TransactionForms from "./components/transactions/TransactionForms";
+import TransactionList from "./components/transactions/TransactionList";
+import Balance from "./components/Balance";
+import "./App.css";
 
 function App() {
-const context = useGlobalState()
   return (
-   <GlobalProvider> 
-    <Header />
-    <TransactionForms />
-    <TransactionList />
-    <Balance />
-    <div className='bg-gray-800 w-full min-h-screen'>
-      <h1 className='text-5xl font-bold text-orange-500'>G50/30/20</h1>
-    </div>
-    <div className="w-40 h-auto">
-      <spam>
-        {context}
-      </spam>
-    </div>
-   </GlobalProvider>
-  )
+    <GlobalProvider>
+      <main className="bg-gray-800 w-full min-h-screen grid grid-cols-5 grid-rows-5 gap-4">
+        <h1 className="text-5xl font-bold text-orange-500 col-span-5 border">G50/30/20</h1>
+        <div className="row-span-4 col-start-2 row-start-2">
+        <TransactionForms />
+        <TransactionList />
+        </div>
+        <div className="col-span-2 row-span-4 col-start-3 row-start-2 border">
+        <Balance />
+        </div>
+      </main>
+    </GlobalProvider>
+  );
 }
 
-export default App
+export default App;

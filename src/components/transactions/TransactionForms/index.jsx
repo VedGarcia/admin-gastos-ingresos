@@ -12,8 +12,10 @@ const {addTransaction} = useGlobalState()
     console.log(description, amount);
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <div className="w-full h-auto bg-orange-800/20 p-2 mb-4 rounded">
+      <h4 className="text-2xl font-bold text-white">Add Transaction</h4>
+      <hr className="my-2"/>
+      <form onSubmit={onSubmit} className="flex flex-col gap-2 w-full">
         <input
           className="border bg-gray-300 rounded p-1 outline-none"
           type="text"

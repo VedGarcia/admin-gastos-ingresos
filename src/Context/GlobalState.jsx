@@ -39,6 +39,6 @@ export const GlobalProvider = ({ children }) => {
   );
 };
 
-GlobalProvider.PropTypes = {
+GlobalProvider.propTypes = {
   children: PropTypes.node
 }
