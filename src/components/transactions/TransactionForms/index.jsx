@@ -8,7 +8,7 @@ const {addTransaction} = useGlobalState()
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addTransaction({id: window.crypto.ramdomUUID(), description, amount})
+    addTransaction({id: window.crypto.randomUUID(), description, amount})
     console.log(description, amount);
   };
   return (
