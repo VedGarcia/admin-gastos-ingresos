@@ -13,7 +13,7 @@ function App() {
 
   return (
     <GlobalProvider>
-      <div className="text-white h-screen flex justify-center items-center">
+      <div className="bg-zinc-900 text-white h-screen flex justify-center items-center">
         {currentView === 'login' ? (
           <LoginForm onLogin={handleLogin} /> 
         ) : (

@@ -40,7 +40,7 @@ function LoginForm({ onLogin }) {
         <a href="#" className="text-blue-500 hover:underline">¿Olvidaste la Contraseña?</a>
       </div>
       <button
-        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full transition duration-300 ease-in-out"
+        className="relative z-10 bg-gradient-to-r from-blue-800 to-gray-700 text-white px-6 py-3 rounded-md block w-full font-semibold transition-transform duration-300 active:scale-95 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 group focus:outline-none focus:ring-3 focus:ring-blue-600 focus:ring-opacity-50"
         type="submit"
       >
         Acceder
