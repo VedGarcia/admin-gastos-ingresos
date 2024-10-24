@@ -12,6 +12,8 @@ function ExpenseChart() {
       .filter((transaction) => transaction.amount < 0)
       .reduce((acc, transaction) => (acc += transaction.amount), 0) * -1;
 
+ 
+
   const totalExpensesPercentage = Math.round(
     (totalExpenses / totalIncome) * 100
   );

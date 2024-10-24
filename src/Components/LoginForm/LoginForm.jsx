@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 import { RiUserLine } from "react-icons/ri";
 import { TfiLock } from "react-icons/tfi";
 
@@ -7,12 +6,15 @@ function LoginForm({ onLogin }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-
     onLogin();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-[#1b1c20] w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 text-white p-10 rounded-lg shadow-lg">
+    
+    <form
+      onSubmit={handleSubmit}
+      className="bg-[#1b1c20]  w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 text-white p-10 rounded-lg shadow-lg"
+    >
       <h1 className="text-3xl p-10 text-center">Acceder</h1>
       <div className="relative mb-4 w-full">
         <input
@@ -35,9 +37,12 @@ function LoginForm({ onLogin }) {
 
       <div className="flex justify-between items-center w-full mb-4">
         <label className="flex items-center">
-          <input type="checkbox" className="mr-2 cursor-pointer" />Recuerdame
+          <input type="checkbox" className="mr-2 cursor-pointer" />
+          Recuerdame
         </label>
-        <a href="#" className="text-blue-500 hover:underline">¿Olvidaste la Contraseña?</a>
+        <a href="#" className="text-blue-500 hover:underline">
+          ¿Olvidaste la Contraseña?
+        </a>
       </div>
       <button
         className="relative z-10 bg-gradient-to-r from-blue-800 to-gray-700 text-white px-6 py-3 rounded-md block w-full font-semibold transition-transform duration-300 active:scale-95 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 group focus:outline-none focus:ring-3 focus:ring-blue-600 focus:ring-opacity-50"
@@ -46,6 +51,7 @@ function LoginForm({ onLogin }) {
         Acceder
       </button>
     </form>
+ 
   );
 }
 
