@@ -2,6 +2,7 @@ import { GlobalProvider} from "./Context/GlobalState";
 import TransactionForms from "./components/transactions/TransactionForms";
 import TransactionList from "./components/transactions/TransactionList";
 import Balance from "./components/Balance";
+import IncomeExpense from "./components/IncomeExpense";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         </div>
         <div className="col-span-2 row-span-4 col-start-3 row-start-2 border">
         <Balance />
+        <IncomeExpense />
         </div>
       </main>
     </GlobalProvider>

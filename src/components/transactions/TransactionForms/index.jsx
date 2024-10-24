@@ -13,7 +13,7 @@ const TransactionForms = () => {
       description,
       amount: +amount,
     });
-    console.log(description, amount);
+ 
   };
   return (
     <div className="w-full h-auto bg-orange-800/20 p-2 mb-4 rounded">
