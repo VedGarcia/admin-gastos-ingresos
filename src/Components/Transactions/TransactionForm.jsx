@@ -2,50 +2,62 @@ import { useState } from "react";
 import { useGlobalState } from "../../Context/GlobalState";
 import { TfiPlus } from "react-icons/tfi";
 
-function TransitionForm() {
+function TransactionForm() {
   const { addTransaction } = useGlobalState();
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState( );
-  const [wish, setWish] = useState();
+  const [amount, setAmount] = useState(0);
+  const [type, setType] = useState("Ingreso");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addTransaction({
-      id: window.crypto.randomUUID(),
-      description: description,
-      amount: +amount,
-      wish: +wish,
-    });
-    setAmount();
-    setDescription("");
-    setWish();
+    if (description && amount) {
+      let transactionAmount = Math.abs(amount);
+      if (type === "Gasto" || type === "Deseo") {
+        transactionAmount = -transactionAmount;
+      }
+      addTransaction({
+        id: window.crypto.randomUUID(),
+        description,
+        amount: transactionAmount,
+        type,
+      });
+      setAmount(0);
+      setDescription("");
+    }
   };
 
   return (
     <div>
       <form onSubmit={onSubmit}>
+        <select
+          className="bg-gradient-to-r from-gray-800 to-zinc-700 text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
+          onChange={(e) => setType(e.target.value)}
+          value={type}
+        >
+          <option className="bg-gray-800" value="Ingreso">
+            Ingreso
+          </option>
+          <option className="bg-gray-800" value="Gasto">
+            Gasto
+          </option>
+          <option className="bg-gray-800" value="Deseo">
+            Deseo
+          </option>
+        </select>
         <input
-          className="bg-gradient-to-r from-gray-800 to-zinc-700 text-white  px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600 "
+          className="bg-gradient-to-r from-gray-800 to-zinc-700 text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
           type="text"
           placeholder="Descripción"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         />
         <input
-          className="bg-gradient-to-r from-gray-800 to-zinc-700  text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="bg-gradient-to-r from-gray-800 to-zinc-700 text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
           type="number"
           step="0.1"
-          placeholder="00.00"
+          placeholder={`Monto (${type})`}
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
-        />
-        <input
-          className="bg-gradient-to-r from-gray-800 to-zinc-700  text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
-          type="number"
-          step="0.1"
-          placeholder="Deseos (puede ser positivo o negativo)"
-          onChange={(e) => setWish(e.target.value)}
-          value={wish}
         />
         <div className="relative">
           <div className="absolute inset-0 bg-[#23273d] opacity-30 rounded-md backdrop-filter backdrop-blur-md transition duration-300 ease-in-out transform scale-100 group-hover:scale-105 group-hover:opacity-50"></div>
@@ -62,4 +74,4 @@ function TransitionForm() {
   );
 }
 
-export default TransitionForm;
+export default TransactionForm;
