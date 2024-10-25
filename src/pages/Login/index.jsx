@@ -11,7 +11,7 @@ import { IoIosArrowForward } from "react-icons/io";
 function Login_registration() {
   return (
     <div className="w-full min-h-screen flex justify-center items-center">
-      <img src="public/logo.png" className="absolute top-20 left-[40%] w-52"/>
+      <img src="public/logo.png" className="absolute -translate-x-20 -translate-y-64 w-52"/>
       <div className="shadow-2xl shadow-gray-700 bg-custom-pattern bg-cover bg-center overflow-hidden">
         <section className="w-96 h-[600px] flex flex-col justify-center items-center p-6 rounded-m">
           <form className="w-full h-72 flex flex-col p-1 font-bold text-sm text-gray-500 ">
