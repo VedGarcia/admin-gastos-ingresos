@@ -1,26 +1,26 @@
 import { VictoryPie, VictoryLabel } from "victory";
 import { useGlobalState } from "../../../context/GloblaState";
 import { GrPieChart } from "react-icons/gr";
+
 function ExpenseChat() {
   const { transactions } = useGlobalState();
-
   const totalIncome = transactions
-    .filter((transaction) => transaction.amount > 0)
+    .filter((transaction) => transaction.type === "income")
     .reduce((acc, transaction) => (acc += transaction.amount), 0);
+  const totalExpenses = transactions
+    .filter((transaction) => transaction.type === "expense")
+    .reduce((acc, transaction) => (acc += transaction.amount), 0) * -1;
+  const totalFunny = transactions
+    .filter((transaction) => transaction.type === "funny")
+    .reduce((acc, transaction) => (acc += transaction.amount), 0) * -1;
 
-  const totalExpenses =
-    transactions
-      .filter((transaction) => transaction.amount < 0)
-      .reduce((acc, transaction) => (acc += transaction.amount), 0) * -1;
-
-  const totalExpensesPercentage = Math.round(
-    (totalExpenses / totalIncome) * 100
-  );
-
-  const totalIncomePercentage = 100 - totalExpensesPercentage;
+  const total = totalIncome + totalExpenses + totalFunny;
+  const totalIncomePercentage = Math.round((totalIncome / total) * 100);
+  const totalExpensesPercentage = Math.round((totalExpenses / total) * 100);
+  const totalFunnyPercentage = Math.round((totalFunny / total) * 100);
 
   // Si no hay datos aún
-  if (totalIncome === 0 && totalExpenses === 0) {
+  if (totalIncome === 0 && totalExpenses === 0 && totalFunny === 0) {
     return (
       <div className="bg-white text-[#4C489D] p-4 my-2 rounded-md shadow-md shadow-slate-600 lg:h-3/6 ">
         <div className="h-full flex items-center justify-center w-full flex-col">
@@ -36,10 +36,11 @@ function ExpenseChat() {
   return (
     <div>
       <VictoryPie
-        colorScale={["#877DD4", "#8C6AE6"]}
+        colorScale={["#877DD4", "#8C6AE6", "#B6B2EC"]}
         data={[
+          { x: "Income", y: totalIncomePercentage },
           { x: "Expense", y: totalExpensesPercentage },
-          { x: "Incomes", y: totalIncomePercentage },
+          { x: "Funny", y: totalFunnyPercentage },
         ]}
         animate={{
           duration: 500,

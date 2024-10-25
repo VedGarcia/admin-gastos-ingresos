@@ -47,6 +47,7 @@ function Login_registration() {
             <p className="text-white font-bold text-xl mb-3">log in via</p>
             <div className="flex gap-x-4 text-lg text-white">
               <FaFacebookSquare />
+              
               <FaTwitter />
               <FaInstagram />
             </div>

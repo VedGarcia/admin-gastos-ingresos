@@ -8,6 +8,7 @@ import { FaMoneyBill1Wave } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { GiReceiveMoney, GiPayMoney } from "react-icons/gi";
 import { MdHistoryToggleOff } from "react-icons/md";
+import { LuCupSoda } from "react-icons/lu";
 
 function Incomes() {
   return (
@@ -55,6 +56,13 @@ function Incomes() {
                     </div>
                     <span>Expense</span>
                     <GiPayMoney />
+                  </div>
+                  <div className="flex gap-1 items-center w-full">
+                    <div className="w-7 bg-[#B6B2EC] rounded-full text-transparent">
+                      d
+                    </div>
+                    <span>Balance</span>
+                    <LuCupSoda />
                   </div>
                 </div>
               </div>
