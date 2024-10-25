@@ -2,18 +2,23 @@ import { useGlobalState } from "../../../context/GloblaState";
 
 function IncomeExpense() {
   const { transactions } = useGlobalState();
-  const income = transactions
-    .filter((transaction) => transaction.type === "income")
-    .reduce((acc, transaction) => (acc += transaction.amount), 0)
-    .toFixed(2);
-  const expense = transactions
-    .filter((transaction) => transaction.type === "expense")
-    .reduce((acc, transaction) => (acc += transaction.amount), 0)
-    .toFixed(2) * -1;
-  const funny = transactions
-    .filter((transaction) => transaction.type === "funny")
-    .reduce((acc, transaction) => (acc += transaction.amount), 0)
-    .toFixed(2) * -1;
+  const income = 
+  transactions
+      .filter((transaction) => transaction.type === "income")
+      .reduce((acc, transaction) => (acc += transaction.amount), 0)
+      .toFixed(1);
+
+  const expense =
+    transactions
+      .filter((transaction) => transaction.type === "expense")
+      .reduce((acc, transaction) => (acc += transaction.amount), 0)
+      .toFixed(1) * -1;
+
+  const funny =
+    transactions
+      .filter((transaction) => transaction.type === "funny")
+      .reduce((acc, transaction) => (acc += transaction.amount), 0)
+      .toFixed(1) * -1;
 
   return (
     <>

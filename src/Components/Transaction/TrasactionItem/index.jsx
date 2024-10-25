@@ -5,9 +5,9 @@ export function TransactionItem({ transaction }) {
   const { deleteTransaction } = useGlobalState();
   const sign = transaction.amount < 0 ? "-" : "+";
   
-  // Determine the background color based on the transaction type
-  const getBackgroundColor = (description) => {
-    if (description.toLowerCase() === "funny") {
+
+  const getBackgroundColor = () => {
+    if (transaction.type.toLowerCase() === "funny") {
       return "bg-[#B6B2EC]"; // 
     }
     return transaction.amount < 0 ? "bg-[#877DD4]" : "bg-[#8C6AE6]";

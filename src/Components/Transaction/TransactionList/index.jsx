@@ -5,7 +5,7 @@ function TransactionList() {
   return (
     <>
       <div className="overflow-x-auto">
-        <ul className="flex gap-x-3 h-24">
+        <ul className="flex gap-x-3 h-20">
           {transactions.map((transaction) => (
             <TransactionItem transaction={transaction} key={transaction.id} />
           ))}

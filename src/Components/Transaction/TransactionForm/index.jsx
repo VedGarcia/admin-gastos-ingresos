@@ -6,7 +6,7 @@ function TransactionForm() {
   const { addTransaction } = useGlobalState();
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState(0);
-  const [type, setType] = useState("income"); // Default type
+  const [type, setType] = useState("income"); 
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -16,10 +16,9 @@ function TransactionForm() {
     } else if (type === "expense") {
       transactionAmount = -Math.abs(amount);
     } else if (type === "funny") {
-      transactionAmount = -Math.abs(amount); // Adjusted logic for Funny
+      transactionAmount = -Math.abs(amount);
     }
     
-    // Cambia aquí para usar description en lugar de type
     addTransaction({
       id: window.crypto.randomUUID(),
       description, 
@@ -28,33 +27,33 @@ function TransactionForm() {
     });
 
     setDescription("");
-    setAmount(0);
+    setAmount();
   };
 
   return (
     <div>
       <form className="w-full h-52 flex flex-col justify-between" onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="Description"
-          className="border-b-2 px-2 py-2 mb-2 w-full bg-transparent uppercase outline-none focus:border-red-300 transition-colors block rounded-l-md rounded-r-md"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-        />
         <select
-          className="border-b-2 px-2 py-2 mb-2 w-full bg-transparent uppercase outline-none focus:border-red-300 transition-colors block rounded-l-md rounded-r-md"
+          className="border-b-2 px-2 py-2 mb-2 w-full bg-transparent outline-none focus:border-red-300 transition-colors block rounded-l-md rounded-r-md"
           onChange={(e) => setType(e.target.value)}
           value={type}
         >
-          <option value="income">Income</option>
-          <option value="expense">Expense</option>
-          <option value="funny">Funny</option>
+          <option className="bg-[#5D4AE4]" value="income">Income</option>
+          <option className="bg-[#5D4AE4]" value="expense">Expense</option>
+          <option className="bg-[#5D4AE4]" value="funny">Funny</option>
         </select>
+        <input
+          type="text"
+          placeholder="Description"
+          className="border-b-2 px-2 py-2 mb-2 w-full bg-transparent outline-none focus:border-red-300 transition-colors block rounded-l-md rounded-r-md"
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+        />
         <input
           type="number"
           step="0"
-          className="border-b-2 px-4 py-2 mb-4 w-full bg-transparent uppercase outline-none focus:border-red-300 transition-colors block rounded-r-md rounded-l-md"
-          placeholder="Amount"
+          className="border-b-2 px-4 py-2 mb-3 w-full bg-transparent  outline-none focus:border-red-300 transition-colors block rounded-r-md rounded-l-md"
+          placeholder={`Amount (${type})`}
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
         />

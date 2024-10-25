@@ -1,30 +1,42 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
-import AppReducer from "../Components/AppReducer";
+import React, { createContext, useReducer, useContext } from "react";
+
+const GlobalStateContext = createContext();
 
 const initialState = {
   transactions: [],
 };
 
-export const Context = createContext();
-
-export const useGlobalState = () => {
-  const context = useContext(Context);
-  return context;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ADD_TRANSACTION":
+      return {
+        ...state,
+        transactions: [action.payload, ...state.transactions],
+      };
+    case "DELETE_TRANSACTION":
+      return {
+        ...state,
+        transactions: state.transactions.filter(
+          (transaction) => transaction.id !== action.payload
+        ),
+      };
+    case "RESET_TRANSACTIONS":
+      return {
+        ...state,
+        transactions: [],
+      };
+    default:
+      return state;
+  }
 };
 
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState, () => {
-    const localData = localStorage.getItem("transactions");
-    return localData ? JSON.parse(localData) : initialState;
-  });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    localStorage.setItem('transactions', JSON.stringify(state))
-  }, [state])
-  const addTransaction = (transactions) => {
+  const addTransaction = (transaction) => {
     dispatch({
       type: "ADD_TRANSACTION",
-      payload: transactions,
+      payload: transaction,
     });
   };
 
@@ -35,15 +47,24 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
+  const resetTransactions = () => {
+    dispatch({
+      type: "RESET_TRANSACTIONS",
+    });
+  };
+
   return (
-    <Context.Provider
+    <GlobalStateContext.Provider
       value={{
         transactions: state.transactions,
         addTransaction,
         deleteTransaction,
+        resetTransactions,
       }}
     >
       {children}
-    </Context.Provider>
+    </GlobalStateContext.Provider>
   );
 };
+
+export const useGlobalState = () => useContext(GlobalStateContext);

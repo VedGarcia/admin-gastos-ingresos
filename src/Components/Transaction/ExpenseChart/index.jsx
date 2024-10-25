@@ -43,7 +43,7 @@ function ExpenseChat() {
           { x: "Funny", y: totalFunnyPercentage },
         ]}
         animate={{
-          duration: 500,
+          duration: 300,
         }}
         labels={({ datum }) => `${datum.y}%`}
         labelComponent={
