@@ -13,10 +13,16 @@ export function ExpenseChart() {
     .filter((transaction) => transaction.amount < 0)
     .reduce((acc, transaction) => (acc += transaction.amount), 0) * -1;
 
-  const expensesPercentage = Math.round((totalExpenses / totalIncomes) * 100);
-  const incomesPercentage = 100 - expensesPercentage;
+    
+  const totalWishes = transactions
+    .filter((transaction) => transaction.type === "wish")
+    .reduce((acc, transaction) => (acc += transaction.amount), 0);
 
-  if (totalIncomes === 0 && totalExpenses === 0) {
+  const expensesPercentage = Math.round((totalExpenses / totalIncomes) * 100) || 0;
+  const incomesPercentage = Math.round((totalIncomes / totalIncomes) * 100) || 0;
+  const wishesPercentage = Math.round((totalWishes / totalIncomes) * 100) || 0;
+
+  if (totalIncomes === 0 && totalExpenses === 0 && totalWishes === 0) {
     return (
       <div className="bg-white bg-opacity-90 p-4 my-2 rounded-md shadow-md backdrop-blur-md">
         <div className="h-full flex items-center justify-center w-full flex-col">
@@ -30,21 +36,21 @@ export function ExpenseChart() {
   return (
     <div className="bg-white bg-opacity-90 p-4 my-2 rounded-md shadow-md backdrop-blur-md">
       <VictoryPie
-        colorScale={["#e74c3c", "#2ecc71"]}
+        colorScale={["#e74c3c", "#2ecc71", "#d66d22"]} 
         data={[
           { x: "Expenses", y: expensesPercentage },
           { x: "Incomes", y: incomesPercentage },
+          { x: "Wishes", y: wishesPercentage },
         ]}
         animate={{
           duration: 2000,
         }}
-        labels={({ datum }) => datum.y}
+        labels={({ datum }) => `${datum.x}: ${datum.y.toFixed(1)}%`}
         labelComponent={
           <VictoryLabel
-            angle={45}
             style={{
               fill: "black",
-              fontSize: 20,
+              fontSize: 12,
               fontWeight: "bold",
             }}
           />

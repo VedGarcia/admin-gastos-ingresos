@@ -26,7 +26,7 @@ const AppRoutes = () => {
 
 function App() {
   return (
-   <GlobalProvider>
+  <GlobalProvider>
     <BrowserRouter>
       <AppRoutes />
     </BrowserRouter>

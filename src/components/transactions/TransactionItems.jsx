@@ -9,7 +9,7 @@ export function TransactionItem({ transaction: { id, description, amount } }) {
     <li
       key={id}
       className={`flex justify-between items-center p-4 rounded-lg shadow-md my-2 bg-opacity-80 backdrop-blur-lg transition-transform transform hover:scale-105 ${
-        amount < 0 ? "bg-red-500" : "bg-green-500"
+        amount < 0 ? "bg-red-500" : "bg-green-500" 
       }`}
     >
       <span className="font-medium text-lg">{description}</span>

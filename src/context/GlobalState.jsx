@@ -22,10 +22,10 @@ export const GlobalProvider = ({ children }) => {
             return JSON.parse(localData);
           } catch (error) {
             console.error("Error parsing localStorage data:", error);
-            return initialState; // fallback to initial state if parsing fails
+            return initialState; 
           }
         }
-        return initialState; // return initial state if localData is null
+        return initialState; 
       });
 
   useEffect(() => {
@@ -43,6 +43,9 @@ export const GlobalProvider = ({ children }) => {
       type: "ADD_TRANSACTION",
       payload: transaction,
     });
+
+
+  
 
   return (
     <Context.Provider
