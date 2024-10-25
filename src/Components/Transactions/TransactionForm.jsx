@@ -6,6 +6,7 @@ function TransitionForm() {
   const { addTransaction } = useGlobalState();
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState( );
+  const [wish, setWish] = useState();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -13,9 +14,11 @@ function TransitionForm() {
       id: window.crypto.randomUUID(),
       description: description,
       amount: +amount,
+      wish: +wish,
     });
     setAmount();
     setDescription("");
+    setWish();
   };
 
   return (
@@ -35,6 +38,14 @@ function TransitionForm() {
           placeholder="00.00"
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
+        />
+        <input
+          className="bg-gradient-to-r from-gray-800 to-zinc-700  text-white px-4 py-2 rounded-lg shadow-md mb-3 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600"
+          type="number"
+          step="0.1"
+          placeholder="Deseos (puede ser positivo o negativo)"
+          onChange={(e) => setWish(e.target.value)}
+          value={wish}
         />
         <div className="relative">
           <div className="absolute inset-0 bg-[#23273d] opacity-30 rounded-md backdrop-filter backdrop-blur-md transition duration-300 ease-in-out transform scale-100 group-hover:scale-105 group-hover:opacity-50"></div>
