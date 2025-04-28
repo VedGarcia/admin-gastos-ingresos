@@ -11,7 +11,10 @@ import { IoIosArrowForward } from "react-icons/io";
 function Login_registration() {
   return (
     <div className="w-full min-h-screen flex justify-center items-center">
-      <img src="public/logo.png" className="absolute -translate-x-20 -translate-y-64 w-52"/>
+      <img
+        src="public/logo.png"
+        className="absolute -translate-x-20 -translate-y-64 w-52"
+      />
       <div className="shadow-2xl shadow-gray-700 bg-custom-pattern bg-cover bg-center overflow-hidden">
         <section className="w-96 h-[600px] flex flex-col justify-center items-center p-6 rounded-m">
           <form className="w-full h-72 flex flex-col p-1 font-bold text-sm text-gray-500 ">
@@ -43,15 +46,15 @@ function Login_registration() {
             </div>
           </form>
         </section>
-          <div className="flex flex-col items-end -translate-y-28 -translate-x-8">
-            <p className="text-white font-bold text-xl mb-3">log in via</p>
-            <div className="flex gap-x-4 text-lg text-white">
-              <FaFacebookSquare />
-              
-              <FaTwitter />
-              <FaInstagram />
-            </div>
+        <div className="flex flex-col items-end -translate-y-28 -translate-x-8">
+          <p className="text-white font-bold text-xl mb-3">log in via</p>
+          <div className="flex gap-x-4 text-lg text-white">
+            <FaFacebookSquare />
+
+            <FaTwitter />
+            <FaInstagram />
           </div>
+        </div>
       </div>
     </div>
   );
